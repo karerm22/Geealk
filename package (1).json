@@ -1,0 +1,12 @@
+{
+  "name": "geeilak-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GEEILAK - Arabic ride request website",
+  "homepage": "",
+  "scripts": {
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": ["geeilak", "website", "arabic", "rides"],
+  "license": "UNLICENSED"
+}
