@@ -528,7 +528,7 @@ img,svg,video,canvas{max-width:100%}
   <div class="menu-group-title"><span>⭐</span> تجربتك معانا</div>
   <button type="button" onclick="openRating()"><span class="menu-item-icon">⭐</span><span><b>تقييم السائقين</b><small>شاركنا رأيك بعد الرحلة</small></span></button>
   <button type="button" onclick="openAbout()"><span class="menu-item-icon">ℹ️</span><span><b>نبذة عن جييلك</b><small>اعرف أكتر عن المشروع</small></span></button>
-  <a href="https://wa.me/201040414502" target="_blank" rel="noopener"><span class="menu-item-icon">📱</span><span><b>واتساب مباشر</b><small>01040414502</small></span><span class="menu-arrow">↗</span></a>
+  <a href="https://wa.me/201148954837" target="_blank" rel="noopener"><span class="menu-item-icon">📱</span><span><b>واتساب مباشر</b><small>01148954837</small></span><span class="menu-arrow">↗</span></a>
  </div>
 </nav>
 </div></header>
@@ -585,7 +585,7 @@ img,svg,video,canvas{max-width:100%}
           <label for="from">منطقة الانطلاق *</label>
           <select id="from" name="from" required>
             <option value="">اختار المنطقة</option>
-            <option>الوليدية</option><option>الفتح</option><option>الأزهر</option><option>الأزهراء</option><option>كورنيش النيل</option><option>الأربعين</option><option>المعلمين</option><option>المحطة</option><option>النزلة</option><option>النميس</option><option>الجمهورية</option><option>السادات</option><option>الهلالي</option><option>الحمراء</option><option>منطقة أخرى</option>
+            <option>الوليدية</option><option>الفتح</option><option>الأزهر</option><option>الزهراء</option><option>كورنيش النيل</option><option>الأربعين</option><option>المعلمين</option><option>المحطة</option><option>النزلة</option><option>المحافظة</option><option>النميس</option><option>الجمهورية</option><option>السادات</option><option>الهلالي</option><option>الحمراء</option><option>الواسطى</option><option>أسيوط الجديدة</option><option>منطقة أخرى</option>
           </select>
         </div>
         
@@ -600,7 +600,7 @@ img,svg,video,canvas{max-width:100%}
           <label for="to">منطقة الوصول *</label>
           <select id="to" name="to" required>
             <option value="">اختار المنطقة</option>
-            <option>الوليدية</option><option>الفتح</option><option>الأزهر</option><option>الأزهراء</option><option>كورنيش النيل</option><option>الأربعين</option><option>المعلمين</option><option>المحطة</option><option>النزلة</option><option>النميس</option><option>الجمهورية</option><option>السادات</option><option>الهلالي</option><option>الحمراء</option><option>منطقة أخرى</option>
+            <option>الوليدية</option><option>الفتح</option><option>الأزهر</option><option>الزهراء</option><option>كورنيش النيل</option><option>الأربعين</option><option>المعلمين</option><option>المحطة</option><option>النزلة</option><option>المحافظة</option><option>النميس</option><option>الجمهورية</option><option>السادات</option><option>الهلالي</option><option>الحمراء</option><option>الواسطى</option><option>أسيوط الجديدة</option><option>منطقة أخرى</option>
           </select>
         </div>
         
@@ -693,246 +693,7 @@ img,svg,video,canvas{max-width:100%}
 
 <footer class="footer"><div class="container footerin">
   <span><b style="color:var(--ink)">جييلك GEEILAK</b> © 2026 — مشوارك يبدأ من هنا</span>
-  <span>تم بناء وتطوير البرنامج بواسطة كريم رمضان • <a href="https://wa.me/201040414502" target="_blank" rel="noopener">واتساب: 01040414502</a> • أسيوط</span>
+  <span>تم بناء وتطوير البرنامج بواسطة كريم رمضان • <a href="https://wa.me/201148954837" target="_blank" rel="noopener">واتساب: 01148954837</a> • أسيوط</span>
 </div></footer>
 
-<div class="modal" id="actionModal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">تواصل مع جييلك</h2><button class="close" onclick="closeModal()">إغلاق ✕</button></div><div id="modalBody"></div></div></div>
-<div class="toast" id="toast"></div>
-
-<script>
-/* ===== THEME ===== */
-(function initTheme(){
-  const saved = localStorage.getItem('gaylak-theme');
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || (prefersDark ? 'dark' : 'light');
-  applyTheme(theme);
-})();
-function applyTheme(theme){
-  document.documentElement.setAttribute('data-theme', theme);
-  const meta = document.querySelector('meta[name="theme-color"]');
-  if(meta) meta.setAttribute('content', theme === 'dark' ? '#0f1417' : '#101820');
-  const icon = document.getElementById('themeIcon');
-  const label = document.getElementById('themeLabel');
-  if(icon && label){
-    if(theme === 'dark'){ icon.textContent = '☀️'; label.textContent = 'الوضع النهاري'; }
-    else { icon.textContent = '🌙'; label.textContent = 'الوضع الداكن'; }
-  }
-  localStorage.setItem('gaylak-theme', theme);
-}
-function toggleTheme(){
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
-  applyTheme(current === 'dark' ? 'light' : 'dark');
-}
-
-/* ===== HERO ROTATION ===== */
-(()=>{const node=document.getElementById('ridePhrase');if(!node)return;const phrases=['مشوارك أسهل مع جييلك','من مكانك… لحد وجهتك','أسيوط أقرب مع جييلك','اطلب مشوارك وسيب الباقي علينا','كل مشوار وله سكة… وإحنا معاك'];let index=0;setInterval(()=>{node.classList.add('phrase-out');setTimeout(()=>{index=(index+1)%phrases.length;node.textContent=phrases[index];node.classList.remove('phrase-out')},260)},3200)})();
-</script>
-
-<script>
-const WA='201040414502', $=id=>document.getElementById(id);
-let bookingMode = 'now'; // now | later
-
-function say(s){let t=$('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
-function setMenuState(open){
-  const menu=$('siteMenu'),btn=$('menuToggle');
-  if(!menu||!btn)return;
-  menu.classList.toggle('open',open);
-  menu.setAttribute('aria-hidden',String(!open));
-  btn.setAttribute('aria-expanded',String(open));
-  btn.setAttribute('aria-label',open?'إغلاق القائمة':'فتح القائمة');
-  const icon=btn.querySelector('.menu-icon');
-  if(icon)icon.textContent=open?'✕':'☰';
-  const label=btn.querySelector('.menu-label');
-  if(label)label.textContent=open?'إغلاق':'القائمة';
-  if(open){const first=menu.querySelector('a,button');if(first)first.focus({preventScroll:true});}
-}
-function toggleMenu(){setMenuState(!$('siteMenu').classList.contains('open'));}
-function closeDrawer(restoreFocus=false){
-  const menu=$('siteMenu');
-  if(menu&&menu.classList.contains('open')){
-    setMenuState(false);
-    if(restoreFocus)$('menuToggle').focus({preventScroll:true});
-  }
-}
-$('siteMenu').addEventListener('click',e=>{if(e.target.closest('a,button'))closeDrawer()});
-document.addEventListener('click',e=>{if(!$('siteMenu').contains(e.target)&&!$('menuToggle').contains(e.target)&&!$('themeToggle').contains(e.target))closeDrawer()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer(true)});
-function openModal(title,body){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('actionModal').classList.add('show')}
-function closeModal(){$('actionModal').classList.remove('show')}
-function sendWA(message){const url='https://wa.me/'+WA+'?text='+encodeURIComponent(message);const w=window.open(url,'_blank');if(w)w.opener=null;else window.location.href=url}
-function validPhone(phone){return /^01[0125][0-9]{8}$/.test(phone)}
-function makeTripCode(){const bytes=new Uint8Array(4);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(bytes);else for(let i=0;i<4;i++)bytes[i]=Math.floor(Math.random()*256);const token=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();return 'GY-'+new Date().getFullYear()+'-'+token}
-
-/* ===== BOOKING TIME TOGGLE ===== */
-function setBookingTime(mode) {
-  bookingMode = mode;
-  const btnNow = $('btnNow'), btnLater = $('btnLater'), dateWrap = $('dateWrap'), dateInput = $('date');
-  
-  if (mode === 'now') {
-    btnNow.classList.add('active');
-    btnLater.classList.remove('active');
-    dateWrap.style.display = 'none'; // إخفاء التاريخ في الحجز الفوري
-    dateInput.required = false;
-    dateInput.value = ''; 
-  } else {
-    btnLater.classList.add('active');
-    btnNow.classList.remove('active');
-    dateWrap.style.display = 'flex'; // إظهار التاريخ في الحجز المسبق
-    dateInput.required = true;
-  }
-}
-
-/* ===== SHOW ADDRESS INPUTS WHEN AREA SELECTED ===== */
-$('from').addEventListener('change', function() {
-  const pickupWrap = $('pickupWrap');
-  const pickupAddress = $('pickupAddress');
-  if (this.value) {
-    pickupWrap.style.display = 'flex';
-    pickupAddress.required = true;
-  } else {
-    pickupWrap.style.display = 'none';
-    pickupAddress.required = false;
-  }
-});
-
-const destinationPrices = {
-  'الوليدية': 20,
-  'الفتح': 20,
-  'الأزهر': 15,
-  'الأزهراء': 15,
-  'كورنيش النيل': 10,
-  'الأربعين': 25,
-  'المعلمين': 25,
-  'المحطة': 15,
-  'النزلة': 15,
-  'النميس': 10,
-  'الجمهورية': 10,
-  'السادات': 15,
-  'الهلالي': 10,
-  'الحمراء': 15
-};
-
-function updateEstimatedPrice() {
-  const destination = $('to').value;
-  const price = destinationPrices[destination];
-  const priceElement = $('estimatedPrice');
-  const hintElement = $('priceHint');
-
-  if (!destination) {
-    priceElement.textContent = '—';
-    hintElement.textContent = 'اختار منطقة الوصول لعرض السعر';
-  } else if (Number.isFinite(price)) {
-    priceElement.textContent = `${price} جنيه`;
-    hintElement.textContent = 'السعر حسب منطقة الوصول فقط';
-  } else {
-    priceElement.textContent = 'السعر هيتحدد بعد إرسال البيانات إلى واتساب';
-    hintElement.textContent = 'لا توجد تسعيرة ثابتة للمنطقة دي';
-  }
-}
-
-$('to').addEventListener('change', function() {
-  const destWrap = $('destinationWrap');
-  const destAddress = $('destinationAddress');
-  if (this.value) {
-    destWrap.style.display = 'flex';
-    destAddress.required = true;
-  } else {
-    destWrap.style.display = 'none';
-    destAddress.required = false;
-  }
-  updateEstimatedPrice();
-});
-
-const dateField=$('date');const now=new Date();now.setMinutes(now.getMinutes()-now.getTimezoneOffset());dateField.min=now.toISOString().slice(0,16);
-
-$('bookingForm').addEventListener('submit',e=>{
- e.preventDefault();
- 
- if (bookingMode === 'now') {
-   const nowLocal = new Date();
-   nowLocal.setMinutes(nowLocal.getMinutes() - nowLocal.getTimezoneOffset());
-   $('date').value = nowLocal.toISOString().slice(0,16);
- }
-
- const phone=$('phone').value.trim();if(!validPhone(phone)){say('اكتب رقم موبايل مصري صحيح');$('phone').focus();return}
- if(!$('bookingForm').reportValidity())return;
- const from=$('from').value;
- const to=$('to').value;
- if(!from||!to){say('اختار منطقة الانطلاق والوصول');return}
- 
- const bookingTypeText = bookingMode === 'now' ? '⚡ حجز فوري (حالاً)' : '📅 حجز مسبق';
- const dateText = bookingMode === 'now' ? 'دلوقتي' : $('date').value;
-
- const fare = destinationPrices[to];
- const fareText = Number.isFinite(fare) ? `${fare} جنيه` : 'السعر هيتحدد بعد إرسال البيانات إلى واتساب';
- const o={id:makeTripCode(),name:$('name').value.trim(),phone,from,to,type:bookingTypeText,date:dateText,pickupAddress:$('pickupAddress').value.trim(),destinationAddress:$('destinationAddress').value.trim(),notes:$('notes').value.trim(),fare:fareText};
- 
- const m=`📌 طلب مشوار جديد - جييلك\n🆔 كود الرحلة: ${o.id}\n👤 اسم العميل: ${o.name}\n📞 رقم الهاتف: ${o.phone}\n🔖 نوع الحجز: ${o.type}\n🕐 موعد المشوار: ${o.date}\n📍 منطقة الانطلاق: ${o.from}\n🏠 اسم الشارع / علامة مميزة: ${o.pickupAddress}\n🎯 منطقة الوصول: ${o.to}\n💰 السعر: ${o.fare}\n🏁 عنوان الوصول: ${o.destinationAddress}\n📝 ملاحظات: ${o.notes||'لا توجد'}`;
- 
- openModal('كود طلب المشوار',`<div style="text-align:center;padding:12px"><p style="font-size:12px;color:#68736f">احتفظ بكود الطلب واستخدمه عند التواصل معنا</p><div id="tripCodeDisplay" style="font:900 25px Arial;direction:ltr;background:#e9efcf;padding:17px;border-radius:12px;letter-spacing:1px;color:#101820">${o.id}</div><p style="font-size:11px;line-height:2;color:#68736f">سيتم فتح واتساب برسالة جاهزة. لا يعتبر الطلب مؤكدًا إلا بعد مراجعة فريق جييلك وتأكيده معك.</p><div class="modal-actions" style="justify-content:center"><button class="btn btn-outline" type="button" onclick="copyCode('${o.id}')">نسخ الكود</button><button class="btn btn-dark" type="button" onclick="sendBookingMessage()">فتح واتساب وإرسال التفاصيل ↙</button></div></div>`);
- window.pendingGaylakMessage=m;window.pendingGaylakCode=o.id;
-});
-function sendBookingMessage(){if(!window.pendingGaylakMessage){say('لا توجد تفاصيل حجز لإرسالها');return}sendWA(window.pendingGaylakMessage);say('رسالة الحجز جاهزة في واتساب')}
-function copyCode(code){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(()=>say('تم نسخ كود الرحلة')).catch(()=>say('انسخ الكود يدويًا'))}else say('انسخ الكود يدويًا')}
-
-function openAbout(){closeDrawer();openModal('نبذة عن جييلك — GEEILAK',`
-<div style="line-height:2.05;color:var(--muted2);font-size:13px">
-  <div style="background:#101820;color:#fffdf7;border-radius:16px;padding:20px;margin-bottom:16px">
-    <div style="color:#d7f36a;font-weight:900;font-size:10px;letter-spacing:2px">GEEILAK • ASSIUT</div>
-    <h3 style="color:#fff;font-size:23px;margin:8px 0">مشوارك في أسيوط… أسهل مع جييلك</h3>
-    <p style="color:#c2cbca;margin:0">جييلك منصة محلية لحجز المشاوير داخل أسيوط، اتعملت علشان تخلي طلب المشوار أوضح وأسهل.</p>
-  </div>
-  <h3 style="font-size:16px;color:var(--ink);margin:8px 0">بدأت الفكرة منين؟</h3>
-  <p>مع زيادة التحديات اللي بنقابلها في المواصلات اليومية، زي صعوبة الوصول لوسيلة مناسبة في الوقت المناسب، وعدم وضوح تفاصيل المشوار من البداية، حسّينا إن فيه حاجة لطريقة أبسط وأكثر تنظيمًا.</p>
-  <p>ومن هنا قررنا نبدأ جييلك: منصة تساعدك تحدد مكان الانطلاق والوجهة، تعرف السعر المتاح حسب منطقة الوصول، وتبعت طلبك في رسالة واتساب جاهزة بدل ما تبدأ كل مرة من الصفر.</p>
-  <p>بعد إرسال الطلب، فريق جييلك بيتواصل معاك لمراجعة التفاصيل وتأكيد الحجز والتوافر. وهدفنا إننا نسمع ملاحظاتكم ونطوّر الخدمة باستمرار علشان نقدم تجربة أفضل لأهل أسيوط.</p>
-  <div style="background:var(--feature-bg);border:1px solid var(--feature-border);border-radius:13px;padding:15px;margin-top:16px">
-    <strong style="color:var(--ink)">جييلك… من أسيوط، علشان مشاوير أسيوط تبقى أسهل.</strong>
-  </div>
-  <div style="background:#e9efcf;border-radius:13px;padding:15px;margin-top:16px;color:#101820"><strong>تم بناء وتطوير الموقع بواسطة كريم رمضان</strong></div>
-</div>`)}
-function openFaq(){closeDrawer();openModal('الأسئلة الشائعة — جييلك',`
-<details class="faq-item" open><summary>1) إيه هي جييلك؟</summary><p>جييلك منصة محلية لحجز المشاوير داخل أسيوط. بتحدد مكان الانطلاق والوجهة، وتبعت طلبك من خلال رسالة واتساب جاهزة، وبعدها فريق جييلك بيراجع التفاصيل ويتواصل معاك لتأكيد الحجز.</p></details>
-<details class="faq-item"><summary>2) جييلك بتوصل لمناطق إيه؟</summary><p>المناطق المدرجة حاليًا في الموقع هي: الوليدية، الفتح، الأزهر، الأزهراء، كورنيش النيل، الأربعين، المعلمين، المحطة، النزلة، النميس، الجمهورية، السادات، الهلالي، والحمراء. تقدر تختار «منطقة أخرى» لو مكانك مش موجود، وفريق جييلك يراجع إمكانية الخدمة معاك.</p></details>
-<details class="faq-item"><summary>3) أسعار المشاوير كام؟</summary><p>السعر بيتحدد حسب منطقة الوصول فقط، والأسعار الظاهرة حاليًا هي:</p><p><strong>الوليدية:</strong> 20 جنيه<br><strong>الفتح:</strong> 20 جنيه<br><strong>الأزهر:</strong> 15 جنيه<br><strong>الأزهراء:</strong> 15 جنيه<br><strong>كورنيش النيل:</strong> 10 جنيه<br><strong>الأربعين:</strong> 25 جنيه<br><strong>المعلمين:</strong> 25 جنيه<br><strong>المحطة:</strong> 15 جنيه<br><strong>النزلة:</strong> 15 جنيه<br><strong>النميس:</strong> 10 جنيه<br><strong>الجمهورية:</strong> 10 جنيه<br><strong>السادات:</strong> 15 جنيه<br><strong>الهلالي:</strong> 10 جنيه<br><strong>الحمراء:</strong> 15 جنيه.</p></details>
-<details class="faq-item"><summary>4) السعر بيتحسب إزاي؟ وهل مكان الانطلاق بيأثر؟</summary><p>السعر بيتحسب من منطقة الوصول فقط. يعني لو اخترت نفس منطقة الوصول، السعر المعروض بيكون واحد حتى لو منطقة الانطلاق مختلفة.</p></details>
-<details class="faq-item"><summary>5) أعمل إيه لو منطقة الوصول مش موجودة في القائمة؟</summary><p>اختار «منطقة أخرى» واكتب العنوان بالتفصيل. الموقع مش هيعرض سعر للمنطقة دي؛ هيظهر إن السعر هيتحدد بعد إرسال البيانات إلى واتساب، وفريق جييلك هيراجع التفاصيل معاك.</p></details>
-<details class="faq-item"><summary>6) إزاي أطلب سائق؟</summary><p>اختار حجز فوري أو مسبق، اكتب اسمك ورقمك، وحدد منطقة الانطلاق والوصول والعناوين المطلوبة، وبعدها اضغط «اطلب سائق الآن». هيفتح واتساب برسالة جاهزة بتفاصيل طلبك. ابعت الرسالة علشان فريق جييلك يستلم الطلب ويتواصل معاك.</p></details>
-<details class="faq-item"><summary>7) إيه الفرق بين الحجز الفوري والحجز المسبق؟</summary><p>الحجز الفوري معناه إنك عايز المشوار دلوقتي. الحجز المسبق معناه إنك بتحدد تاريخ ووقت لاحقين، وفريق جييلك بيراجع معاك التوافر قبل تأكيد الحجز.</p></details>
-<details class="faq-item"><summary>8) هل بمجرد ما واتساب يفتح يبقى الحجز اتأكد؟</summary><p>لا. فتح واتساب وتجهيز الرسالة مش معناه إن الحجز اتأكد. لازم تبعت الرسالة، وبعدها فريق جييلك يتواصل معاك لمراجعة التفاصيل وتأكيد التوافر والحجز.</p></details>
-<details class="faq-item"><summary>9) أعمل إيه لو السائق اتأخر أو ما وصلش؟</summary><p>تواصل مع فريق جييلك على واتساب، وابعث كود الرحلة ووضح وقت الحجز ومكانك والمشكلة. الفريق هيراجع الطلب ويتابع معاك.</p></details>
-<details class="faq-item"><summary>10) أعمل إيه لو السائق اتصرف بطريقة سيئة أو صدر منه تصرف غلط؟</summary><p>سلامتك أهم حاجة. لو حاسس إنك في خطر، حاول تكون في مكان آمن واطلب المساعدة من الجهات المختصة فورًا. بعد كده بلّغ فريق جييلك من قسم «الشكاوى والمشكلات»، واكتب كود الرحلة وتفاصيل اللي حصل ووقت ومكان الواقعة. تقدر كمان تتواصل مباشرة على واتساب.</p></details>
-<details class="faq-item"><summary>11) إزاي أقدم شكوى على سائق؟</summary><p>افتح القائمة واختار «الشكاوى والمشكلات»، واكتب كود الرحلة واسمك ورقم هاتفك، وحدد نوع المشكلة واكتب التفاصيل بوضوح. عند إرسال النموذج هتتجهز رسالة شكوى على واتساب لفريق جييلك.</p></details>
-<details class="faq-item"><summary>12) أقدر ألغي الحجز أو أغيّر العنوان؟</summary><p>أيوه، لكن لازم تتواصل مع فريق جييلك على واتساب في أسرع وقت، وتذكر كود الرحلة والتعديل أو الإلغاء المطلوب. التعديل أو الإلغاء بيحتاج مراجعة وتأكيد من الفريق.</p></details>
-<details class="faq-item"><summary>13) ألاقي كود الرحلة فين؟</summary><p>كود الرحلة بيظهر بعد إرسال نموذج الحجز في نافذة تأكيد الطلب، وبيكون موجود كمان داخل رسالة واتساب الجاهزة. احتفظ بيه علشان تستخدمه في المتابعة أو الشكوى أو التقييم.</p></details>
-<details class="faq-item"><summary>14) إزاي أقيّم السائق بعد الرحلة؟</summary><p>افتح القائمة واختار «تقييم السائقين»، واكتب كود الرحلة واسمك وحدد التقييم من نجمة إلى خمس نجوم، واكتب ملاحظاتك لو حابب، وبعدها ابعت التقييم على واتساب.</p></details>
-<details class="faq-item"><summary>15) طرق الدفع إيه؟</summary><p>طريقة الدفع وتفاصيلها يتم تأكيدها مع فريق جييلك قبل تنفيذ الرحلة. اسأل الفريق على واتساب وقت مراجعة الحجز علشان تكون التفاصيل واضحة قبل ما تبدأ.</p></details>
-<details class="faq-item"><summary>16) هل السعر يشمل الانتظار أو الذهاب والعودة؟</summary><p>الأسعار المعروضة في الموقع هي أسعار الرحلة حسب منطقة الوصول. أي تفاصيل إضافية زي الانتظار أو الذهاب والعودة لازم تتوضح مع فريق جييلك على واتساب قبل تأكيد الحجز.</p></details>
-<details class="faq-item"><summary>17) هل أقدر أحجز في أي وقت؟</summary><p>تقدر تبعت طلبك من خلال الموقع، لكن تنفيذ الرحلة وتوافر السائق بيتأكدوا من فريق جييلك بعد مراجعة الطلب. لو الحجز في وقت متأخر أو في موعد محدد، اكتب التفاصيل بوضوح وانتظر تأكيد الفريق.</p></details>
-<details class="faq-item"><summary>18) أعمل إيه لو نسيت كود الرحلة؟</summary><p>راجع نافذة تأكيد الطلب أو رسالة واتساب اللي جهزتها وقت الحجز. لو مش لاقيه، ابعت لفريق جييلك اسمك ورقم هاتفك وموعد الرحلة والمنطقتين علشان يساعدك في الوصول للطلب.</p></details>
-<details class="faq-item"><summary>19) إزاي أتواصل مع جييلك؟</summary><p>تقدر تتواصل مباشرة على واتساب من خلال الرقم 01040414502، أو تستخدم أقسام الاستفسارات والشكاوى الموجودة في قائمة الموقع.</p></details>
-<details class="faq-item"><summary>20) هل بياناتي بتتبعت فين؟</summary><p>تفاصيل الحجز اللي بتكتبها بتتجهز في رسالة واتساب علشان فريق جييلك يراجع طلبك ويتواصل معاك. ما تبعتش كلمات مرور أو بيانات بطاقات بنكية أو أي معلومات سرية في رسالة الحجز.</p></details>
-<details class="faq-item"><summary>21) الموقع مش شغال كويس أو زرار الحجز مش بيستجيب، أعمل إيه؟</summary><p>جرّب تحدّث الصفحة وتتأكد من اتصال الإنترنت، ولو المشكلة مستمرة ابعت لنا على واتساب 01040414502 واشرح نوع جهازك والمشكلة اللي ظهرت لك.</p></details>
-<details class="faq-item"><summary>22) هل الموقع شغال على الموبايل والتابلت والكمبيوتر؟</summary><p>أيوه، تصميم الموقع متجاوب علشان يتناسب مع شاشات الموبايل والتابلت واللابتوب والكمبيوتر، وتقدر تستخدمه من متصفح الإنترنت.</p></details>
-`) }
-function openRating(){closeDrawer();openModal('تقييم السائقين',`
-<form class="modal-content" id="ratingForm">
-<div class="field"><label>كود الرحلة *</label><input id="rateCode" required maxlength="30" placeholder="مثال: GY-2026-ABC123"></div>
-<div class="field"><label>اسم العميل *</label><input id="rateName" required maxlength="80" placeholder="اسمك"></div>
-<div class="field"><label>تقييم السائق *</label><div id="starPicker" style="display:flex;gap:8px;direction:ltr;font-size:32px;color:#b8bdb3"><button type="button" class="star" data-star="1">★</button><button type="button" class="star" data-star="2">★</button><button type="button" class="star" data-star="3">★</button><button type="button" class="star" data-star="4">★</button><button type="button" class="star" data-star="5">★</button></div><input type="hidden" id="ratingValue" value="0"></div>
-<div class="field"><label>ملاحظاتك</label><textarea id="ratingNote" placeholder="احكيلنا عن تجربتك مع السائق..."></textarea></div>
-<button class="btn btn-dark" type="submit">إرسال التقييم على واتساب ↙</button>
-</form>`);
- document.querySelectorAll('.star').forEach(b=>b.addEventListener('click',()=>{let n=Number(b.dataset.star);$('ratingValue').value=n;document.querySelectorAll('.star').forEach(x=>x.style.color=Number(x.dataset.star)<=n?'#a6bd43':'#b8bdb3')}));
- $('ratingForm').addEventListener('submit',e=>{e.preventDefault();let code=$('rateCode').value.trim(),name=$('rateName').value.trim(),stars=Number($('ratingValue').value),note=$('ratingNote').value.trim();if(!code||!name){say('أدخل كود الرحلة واسم العميل');return}if(stars<1||stars>5){say('اختار تقييم من نجمة إلى خمس نجوم');return}sendWA(`📌 تقييم سائق - جييلك\n🆔 كود الرحلة: ${code}\n👤 اسم العميل: ${name}\n⭐ التقييم: ${stars} من 5 نجوم\n📝 الملاحظات: ${note||'لا توجد ملاحظات'}`);say('تم تجهيز رسالة التقييم على واتساب');closeModal()})
-}
-function openContact(type){closeDrawer();if(type==='شكوى'){openModal('الشكاوى والمشكلات',`
-<form class="modal-content" id="complaintForm"><div class="field"><label>كود الرحلة *</label><input id="complaintCode" required maxlength="30" placeholder="أدخل كود الرحلة"></div><div class="field"><label>اسم العميل *</label><input id="complaintName" required maxlength="80" placeholder="اسمك"></div><div class="field"><label>رقم الهاتف *</label><input id="complaintPhone" required inputmode="tel" maxlength="11" placeholder="01xxxxxxxxx"></div><div class="field"><label>نوع المشكلة *</label><select id="complaintType" required><option value="">اختر نوع المشكلة</option><option>تأخر السائق</option><option>مشكلة في التعامل</option><option>مشكلة في الحجز</option><option>مشكلة أثناء الرحلة</option><option>مشكلة أخرى</option></select></div><div class="field"><label>تفاصيل الشكوى *</label><textarea id="complaintText" required maxlength="1000" placeholder="اكتب تفاصيل المشكلة..."></textarea></div><button class="btn btn-dark" type="submit">تجهيز الشكوى على واتساب ↙</button></form>`);
- $('complaintForm').addEventListener('submit',e=>{e.preventDefault();let c=$('complaintCode').value.trim(),d=$('complaintText').value.trim(),n=$('complaintName').value.trim(),p=$('complaintPhone').value.trim(),t=$('complaintType').value;if(!validPhone(p)){say('اكتب رقم موبايل مصري صحيح');return}sendWA(`📌 شكوى / مشكلة - جييلك\n🆔 كود الرحلة: ${c}\n👤 اسم العميل: ${n}\n📞 رقم الهاتف: ${p}\n⚠️ نوع المشكلة: ${t}\n📝 تفاصيل الشكوى: ${d}`);say('تم تجهيز رسالة الشكوى');closeModal()});
- }else{openModal('استفسار عام',`<form class="modal-content" id="inquiryForm"><div class="field"><label>اسمك</label><input id="inquiryName" placeholder="اسمك (اختياري)"></div><div class="field"><label>رقم الموبايل</label><input id="inquiryPhone" inputmode="tel" placeholder="رقمك للتواصل (اختياري)"></div><div class="field"><label>اكتب استفسارك *</label><textarea id="inquiryText" required placeholder="اكتب سؤالك أو استفسارك..."></textarea></div><button class="btn btn-dark" type="submit">إرسال الاستفسار على واتساب ↙</button></form>`);
- $('inquiryForm').addEventListener('submit',e=>{e.preventDefault();sendWA(`📌 استفسار جديد - جييلك\n👤 الاسم: ${$('inquiryName').value.trim()||'غير مذكور'}\n📞 رقم الهاتف: ${$('inquiryPhone').value.trim()||'غير مذكور'}\n💬 الاستفسار: ${$('inquiryText').value.trim()}`);say('تم تجهيز الاستفسار على واتساب');closeModal()})}
-}
-$('actionModal').addEventListener('click',e=>{if(e.target===$('actionModal'))closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-</script>
-</body></html>
+<div class="modal" id="actionModal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">تواص
